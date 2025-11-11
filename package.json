@@ -1,0 +1,26 @@
+{
+  "name": "neon-syndicate-generator",
+  "version": "1.0.0",
+  "description": "Cyberpunk Vaporwave PFP Generator using Together.ai and Flux",
+  "main": "cyberpunk-generator.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "nft",
+    "pfp",
+    "cyberpunk",
+    "vaporwave",
+    "ai-art",
+    "together-ai",
+    "flux"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

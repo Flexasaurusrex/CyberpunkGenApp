@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Syndicate - Collection Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #0a0e27 100%);
+            color: #00ffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 16, 240, 0.1);
+            border: 2px solid #ff10f0;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255, 16, 240, 0.3);
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff10f0;
+            text-shadow: 0 0 20px #ff10f0;
+            margin-bottom: 10px;
+            letter-spacing: 5px;
+        }
+
+        .subtitle {
+            color: #00ffff;
+            font-size: 1.2em;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .api-status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .api-status.connected {
+            background: rgba(0, 255, 0, 0.2);
+            border: 1px solid #00ff00;
+            color: #00ff00;
+        }
+
+        .api-status.disconnected {
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid #ff0000;
+            color: #ff0000;
+        }
+
+        .section {
+            background: rgba(0, 255, 255, 0.05);
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .section h2 {
+            color: #ffd700;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px #ffd700;
+        }
+
+        .faction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .faction-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid;
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faction-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .faction-card.synthwave {
+            border-color: #ff10f0;
+        }
+
+        .faction-card.glitch {
+            border-color: #00ff00;
+        }
+
+        .faction-card.neon {
+            border-color: #ff4500;
+        }
+
+        .faction-card.active {
+            box-shadow: 0 0 30px currentColor;
+            transform: translateY(-5px);
+        }
+
+        .faction-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .faction-card.synthwave h3 { color: #ff10f0; }
+        .faction-card.glitch h3 { color: #00ff00; }
+        .faction-card.neon h3 { color: #ff4500; }
+
+        .config-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .config-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            color: #ffd700;
+            font-weight: bold;
+            text-shadow: 0 0 10px #ffd700;
+        }
+
+        input, select {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #00ffff;
+            border-radius: 5px;
+            padding: 12px;
+            color: #00ffff;
+            font-family: 'Courier New', monospace;
+            font-size: 1em;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 15px #00ffff;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background: linear-gradient(135deg, #ff10f0 0%, #00ffff 100%);
+            border: none;
+            border-radius: 5px;
+            padding: 15px 30px;
+            color: white;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 15px rgba(255, 16, 240, 0.3);
+        }
+
+        button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 16, 240, 0.5);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        button.stop-btn {
+            background: linear-gradient(135deg, #ff0000 0%, #ff4500 100%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-box {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #ffd700;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-label {
+            color: #ffd700;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            color: #00ffff;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .progress-section {
+            display: none;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #00ffff;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff10f0, #00ffff, #ffd700);
+            width: 0%;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 16, 240, 0.5);
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-shadow: 0 0 10px black;
+        }
+
+        .status-log {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #00ffff;
+            border-radius: 5px;
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-size: 0.9em;
+        }
+
+        .status-log div {
+            margin: 5px 0;
+            padding: 5px;
+            border-left: 3px solid #00ffff;
+            padding-left: 10px;
+        }
+
+        .status-log .error {
+            border-left-color: #ff0000;
+            color: #ff6666;
+        }
+
+        .status-log .success {
+            border-left-color: #00ff00;
+            color: #66ff66;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .preview-item {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #00ffff;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .preview-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .preview-label {
+            color: #ffd700;
+            font-size: 0.8em;
+        }
+
+        .info-box {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #ffd700;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .info-box h4 {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            color: #00ffff;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .faction-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ NEON SYNDICATE ⚡</h1>
+            <p class="subtitle">Complete PFP Collection Generator</p>
+            <div class="api-status" id="apiStatus">⚠️ API Not Connected</div>
+        </header>
+
+        <!-- Faction Selection -->
+        <div class="section">
+            <h2>🎨 SELECT YOUR FACTION</h2>
+            <div class="faction-grid">
+                <div class="faction-card synthwave" data-faction="synthwave">
+                    <h3>💜 SYNTHWAVE COLLECTIVE</h3>
+                    <p>Retro-futuristic vaporwave aesthetic with pink, purple, and cyan neon palettes</p>
+                </div>
+
+                <div class="faction-card glitch" data-faction="glitch">
+                    <h3>🔷 GLITCH NETWORK</h3>
+                    <p>Digital anarchist aesthetic with green, blue, and white holographic themes</p>
+                </div>
+
+                <div class="faction-card neon" data-faction="neon">
+                    <h3>⚡ NEON CARTEL</h3>
+                    <p>Street samurai aesthetic with red, orange, and gold blade runner vibes</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Generation Config -->
+        <div class="section">
+            <h2>⚙️ COLLECTION SETTINGS</h2>
+            
+            <div class="config-grid">
+                <div class="config-item">
+                    <label for="collectionSize">Collection Size:</label>
+                    <select id="collectionSize">
+                        <option value="100">100 PFPs (Test)</option>
+                        <option value="500">500 PFPs</option>
+                        <option value="1000">1000 PFPs</option>
+                        <option value="2500">2500 PFPs</option>
+                        <option value="5000" selected>5000 PFPs (Full Collection)</option>
+                    </select>
+                </div>
+
+                <div class="config-item">
+                    <label for="batchSize">Batch Size:</label>
+                    <select id="batchSize">
+                        <option value="10">10 per batch</option>
+                        <option value="25" selected>25 per batch</option>
+                        <option value="50">50 per batch</option>
+                        <option value="100">100 per batch</option>
+                    </select>
+                </div>
+
+                <div class="config-item">
+                    <label for="startNumber">Start Number:</label>
+                    <input type="number" id="startNumber" value="1" min="1">
+                </div>
+
+                <div class="config-item">
+                    <label for="collectionName">Collection Name:</label>
+                    <input type="text" id="collectionName" value="Neon Syndicate" placeholder="Your Collection Name">
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>📊 Rarity Distribution:</h4>
+                <ul>
+                    <li><strong>Commons (65%):</strong> Standard cyberpunk portraits</li>
+                    <li><strong>Uncommon (25%):</strong> Enhanced with neon effects</li>
+                    <li><strong>Rare (8%):</strong> Advanced cyber modifications</li>
+                    <li><strong>Legendary (2%):</strong> Unique godmode aesthetics</li>
+                </ul>
+            </div>
+
+            <div class="button-group">
+                <button id="startBtn" onclick="startGeneration()">
+                    🚀 START GENERATION
+                </button>
+                <button id="stopBtn" class="stop-btn" onclick="stopGeneration()" disabled>
+                    🛑 STOP GENERATION
+                </button>
+                <button id="downloadBtn" onclick="downloadCollection()" disabled>
+                    📥 DOWNLOAD COLLECTION
+                </button>
+                <button onclick="clearCollection()">
+                    🗑️ CLEAR & RESET
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats & Progress -->
+        <div class="section">
+            <h2>📊 GENERATION STATS</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-label">Generated</div>
+                    <div class="stat-value" id="generatedCount">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Total Target</div>
+                    <div class="stat-value" id="totalTarget">5000</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Commons</div>
+                    <div class="stat-value" id="commonsCount">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Uncommons</div>
+                    <div class="stat-value" id="uncommonsCount">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Rares</div>
+                    <div class="stat-value" id="raresCount">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Legendaries</div>
+                    <div class="stat-value" id="legendariesCount">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Est. Cost</div>
+                    <div class="stat-value" id="costEstimate">$0.00</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Time Elapsed</div>
+                    <div class="stat-value" id="timeElapsed">0m 0s</div>
+                </div>
+            </div>
+
+            <div class="progress-section" id="progressSection">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                    <div class="progress-text" id="progressText">0%</div>
+                </div>
+                <div class="status-log" id="statusLog"></div>
+            </div>
+        </div>
+
+        <!-- Preview Gallery -->
+        <div class="section">
+            <h2>🖼️ GENERATED PREVIEW (Last 20)</h2>
+            <div class="preview-grid" id="previewGrid"></div>
+        </div>
+    </div>
+
+    <script src="collection-generator.js"></script>
+</body>
+</html>
