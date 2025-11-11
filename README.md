@@ -1,4 +1,4 @@
-# ⚡ NEON SYNDICATE - Complete PFP Collection Generator
+# ⚡ NEON SYNDICATE - Complete PFP Collection Generator!
 
 A web-based tool for generating **complete cyberpunk/vaporwave PFP collections** using Together.ai's Flux models.
 
