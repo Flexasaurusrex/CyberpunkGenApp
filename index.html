@@ -391,11 +391,13 @@
                 <div class="config-item">
                     <label for="collectionSize">Collection Size:</label>
                     <select id="collectionSize">
-                        <option value="100">100 PFPs (Test)</option>
+                        <option value="10" selected>10 PFPs (Quick Test)</option>
+                        <option value="20">20 PFPs (Test)</option>
+                        <option value="100">100 PFPs (Small Batch)</option>
                         <option value="500">500 PFPs</option>
                         <option value="1000">1000 PFPs</option>
                         <option value="2500">2500 PFPs</option>
-                        <option value="5000" selected>5000 PFPs (Full Collection)</option>
+                        <option value="5000">5000 PFPs (Full Collection)</option>
                     </select>
                 </div>
 
@@ -421,13 +423,16 @@
             </div>
 
             <div class="info-box">
-                <h4>📊 Rarity Distribution:</h4>
+                <h4>📊 Rarity Distribution (for larger collections):</h4>
                 <ul>
                     <li><strong>Commons (65%):</strong> Standard cyberpunk portraits</li>
                     <li><strong>Uncommon (25%):</strong> Enhanced with neon effects</li>
                     <li><strong>Rare (8%):</strong> Advanced cyber modifications</li>
                     <li><strong>Legendary (2%):</strong> Unique godmode aesthetics</li>
                 </ul>
+                <p style="margin-top: 10px; opacity: 0.8; font-size: 0.9em;">
+                    💡 Small test batches (10-20) will have proportional distribution - perfect for testing style!
+                </p>
             </div>
 
             <div class="button-group">
@@ -457,7 +462,7 @@
                 </div>
                 <div class="stat-box">
                     <div class="stat-label">Total Target</div>
-                    <div class="stat-value" id="totalTarget">5000</div>
+                    <div class="stat-value" id="totalTarget">10</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-label">Commons</div>
