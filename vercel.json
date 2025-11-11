@@ -15,8 +15,5 @@
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ],
-  "env": {
-    "TOGETHER_API_KEY": "@together_api_key"
-  }
+  ]
 }
