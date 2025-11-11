@@ -25,46 +25,46 @@ const RARITY_DISTRIBUTION = {
     legendary: 0.02    // 2%
 };
 
-// Faction Color Palettes
+// Faction Color Palettes - DARK ANIME STYLE
 const FACTION_PALETTES = {
     synthwave: {
-        colors: "vibrant pink, purple, cyan, magenta",
-        lighting: "neon pink and purple lighting with cyan highlights",
-        vibe: "retro-futuristic vaporwave"
+        colors: "vibrant pink, deep purple, electric cyan, hot magenta",
+        lighting: "dramatic neon pink and purple lighting with sharp cyan highlights, high contrast shadows",
+        vibe: "dark vaporwave anime, Tsugumi Ohba style, cyberpunk noir"
     },
     glitch: {
-        colors: "electric green, bright blue, cyan, white",
-        lighting: "green and blue holographic lighting with digital glow",
-        vibe: "digital matrix hacker"
+        colors: "toxic green, electric blue, stark white, deep black",
+        lighting: "harsh green and blue holographic lighting with dramatic shadows, matrix aesthetic",
+        vibe: "dark anime hacker, Death Note style, digital dystopia"
     },
     neon: {
-        colors: "bright red, orange, gold, crimson",
-        lighting: "red and orange neon lighting with golden highlights",
-        vibe: "street samurai blade runner"
+        colors: "blood red, burning orange, molten gold, deep crimson",
+        lighting: "intense red and orange neon with golden rim lighting, noir shadows",
+        vibe: "dark anime street samurai, Akira style, blade runner noir"
     }
 };
 
-// Tier-Based Prompt Templates
+// Tier-Based Prompt Templates - DARK ANIME STYLE
 const TIER_PROMPTS = {
     common: {
-        base: "cyberpunk portrait, character facing forward, centered composition, clean style",
-        details: "basic cyberpunk clothing, simple hairstyle, standard features",
-        effects: "subtle lighting, clean background"
+        base: "dark anime portrait, Tsugumi Ohba art style, sharp linework, dramatic composition, character facing forward",
+        details: "cyberpunk anime character, detailed eyes, sharp features, sleek outfit, intense expression",
+        effects: "dramatic lighting, high contrast shadows, cinematic composition, depth of field"
     },
     uncommon: {
-        base: "cyberpunk portrait, character facing forward, centered composition, enhanced style",
-        details: "stylized cyberpunk outfit, unique hairstyle, cyber accessories",
-        effects: "neon glow effects, holographic elements, enhanced lighting"
+        base: "dark anime portrait, Death Note art style, sharp detailed linework, dynamic composition, character facing forward",
+        details: "cyberpunk anime warrior, piercing eyes, angular features, tactical gear, fierce expression, cyber implants",
+        effects: "neon glow effects, dramatic rim lighting, noir atmosphere, heavy shadows, cinematic depth"
     },
     rare: {
-        base: "cyberpunk portrait, character facing forward, centered composition, premium style",
-        details: "advanced cyber modifications, distinctive outfit, rare accessories, glowing implants",
-        effects: "animated neon effects, glitch overlays, dramatic lighting, energy aura"
+        base: "dark anime portrait, Tsugumi Ohba style, intricate linework, badass composition, character facing forward",
+        details: "elite cyberpunk anime fighter, glowing eyes, sharp jawline, advanced cyber mods, intimidating presence, battle-worn",
+        effects: "intense neon effects, glitch overlays, dramatic backlighting, volumetric fog, cinematic atmosphere"
     },
     legendary: {
-        base: "legendary cyberpunk portrait, character facing forward, centered composition, godmode aesthetics",
-        details: "full cyber transformation, unique legendary modifications, reality-warping features",
-        effects: "maximum effects, holographic overlay, energy manifestation, ultra-dramatic lighting"
+        base: "legendary dark anime portrait, Death Note meets Akira art style, masterful linework, epic composition, character facing forward",
+        details: "godlike cyberpunk anime character, supernatural eyes, chiseled features, transcendent cyber form, overwhelming presence",
+        effects: "maximum dramatic effects, reality distortion, powerful energy aura, cinematic god rays, noir perfection"
     }
 };
 
@@ -156,22 +156,28 @@ function buildPrompt(tier, index) {
     const faction = FACTION_PALETTES[selectedFaction];
     const tierTemplate = TIER_PROMPTS[tier];
     
-    // Consistent base prompt
+    // Dark anime style prompt
     let prompt = `${tierTemplate.base}, ${faction.vibe} aesthetic, `;
     prompt += `${tierTemplate.details}, `;
     prompt += `${faction.colors} color palette, `;
     prompt += `${faction.lighting}, `;
     prompt += `${tierTemplate.effects}, `;
     
-    // Consistency anchors
-    prompt += `professional digital art, high detail, consistent art style, `;
-    prompt += `portrait illustration, 2D art, clean composition, `;
-    prompt += `character centered, facing forward, shoulders up`;
+    // Anime style anchors
+    prompt += `dark anime art style, manga illustration, seinen manga aesthetic, `;
+    prompt += `sharp lineart, detailed anime eyes, dramatic shading, `;
+    prompt += `professional anime portrait, high quality anime art, `;
+    prompt += `mature anime style, gritty anime illustration, `;
+    prompt += `character centered, facing forward, shoulders up, `;
+    prompt += `cinematic anime composition, badass character design`;
     
-    // Negative prompt for consistency
-    const negativePrompt = `blurry, low quality, 3D render, photograph, realistic, ugly, distorted, ` +
-                          `watermark, text, signature, multiple characters, duplicate, background clutter, ` +
-                          `inconsistent style, different art style`;
+    // Negative prompt - AVOID CARTOON STYLE
+    const negativePrompt = `cartoon, western cartoon, pixar, disney, chibi, cute, kawaii, soft, ` +
+                          `rounded features, simplified, children's art, cel shaded, flat colors, ` +
+                          `blurry, low quality, 3D render, photograph, realistic photo, ` +
+                          `ugly, distorted, deformed, watermark, text, signature, ` +
+                          `multiple characters, duplicate, bad anatomy, bad proportions, ` +
+                          `oversaturated, overexposed, amateur, sketch, unfinished`;
     
     return { prompt, negativePrompt };
 }
