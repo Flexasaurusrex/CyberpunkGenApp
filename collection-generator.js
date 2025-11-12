@@ -25,46 +25,125 @@ const RARITY_DISTRIBUTION = {
     legendary: 0.02    // 2%
 };
 
-// Faction Color Palettes - DARK ANIME STYLE
-const FACTION_PALETTES = {
+// Faction-Specific Animal Spirit Themes - CHINESE MYTHOLOGY
+const FACTION_THEMES = {
     synthwave: {
+        name: "Synthwave Collective",
         colors: "vibrant pink, deep purple, electric cyan, hot magenta",
-        lighting: "dramatic neon pink and purple lighting with sharp cyan highlights, high contrast shadows",
-        vibe: "dark vaporwave anime, Tsugumi Ohba style, cyberpunk noir"
+        lighting: "dramatic neon pink and purple lighting with sharp cyan highlights, ethereal glow",
+        vibe: "celestial vaporwave spirits, mystical anime aesthetic",
+        animals: {
+            common: ["celestial crane", "moon rabbit", "cloud serpent"],
+            uncommon: ["phoenix fledgling", "sky fox", "celestial tiger"],
+            rare: ["azure phoenix", "nine-tailed fox", "astral qilin"],
+            legendary: ["cosmic phoenix god", "celestial dragon emperor", "divine kirin overlord"]
+        }
     },
     glitch: {
+        name: "Glitch Network",
         colors: "toxic green, electric blue, stark white, deep black",
-        lighting: "harsh green and blue holographic lighting with dramatic shadows, matrix aesthetic",
-        vibe: "dark anime hacker, Death Note style, digital dystopia"
+        lighting: "harsh green and blue holographic lighting with digital aura, matrix glow",
+        vibe: "digital spirit hackers, corrupted mythological beasts",
+        animals: {
+            common: ["data serpent", "cyber wolf", "glitch raven"],
+            uncommon: ["corrupted dragon", "digital tiger", "matrix fox"],
+            rare: ["glitch qilin", "void dragon", "corrupted phoenix"],
+            legendary: ["digital dragon god", "matrix leviathan", "glitch deity beast"]
+        }
     },
     neon: {
+        name: "Neon Cartel",
         colors: "blood red, burning orange, molten gold, deep crimson",
-        lighting: "intense red and orange neon with golden rim lighting, noir shadows",
-        vibe: "dark anime street samurai, Akira style, blade runner noir"
+        lighting: "intense red and orange neon with golden rim lighting, warrior glow",
+        vibe: "warrior spirits, battle-hardened mythical beasts",
+        animals: {
+            common: ["street tiger", "urban wolf", "crimson serpent"],
+            uncommon: ["battle dragon", "warrior phoenix", "combat qilin"],
+            rare: ["war god tiger", "blood dragon", "infernal phoenix"],
+            legendary: ["dragon war deity", "supreme battle beast", "legendary warrior spirit"]
+        }
     }
 };
 
-// Tier-Based Prompt Templates - DARK ANIME STYLE
-const TIER_PROMPTS = {
-    common: {
-        base: "dark anime portrait, Tsugumi Ohba art style, sharp linework, dramatic composition, character facing forward",
-        details: "cyberpunk anime character, detailed eyes, sharp features, sleek outfit, intense expression",
-        effects: "dramatic lighting, high contrast shadows, cinematic composition, depth of field"
+// Faction-Specific Tier Prompts - ANIMAL SPIRITS
+const FACTION_TIER_PROMPTS = {
+    synthwave: {
+        common: {
+            creatures: "celestial crane spirit, moon rabbit yokai, cloud serpent",
+            style: "elegant celestial spirit portrait, mystical anime art, flowing ethereal design",
+            details: "graceful features, gentle glow, soft spiritual energy, delicate patterns, calm expression",
+            effects: "soft neon glow, ethereal mist, floating sparkles, dreamy atmosphere"
+        },
+        uncommon: {
+            creatures: "phoenix fledgling spirit, sky fox yokai, celestial tiger guardian",
+            style: "mystical spirit warrior portrait, detailed anime art, dynamic ethereal composition",
+            details: "sharp spiritual features, glowing eyes, energy wisps, mystical markings, fierce yet elegant",
+            effects: "vibrant neon aura, swirling energy, magical particles, ethereal flames"
+        },
+        rare: {
+            creatures: "azure phoenix deity, nine-tailed celestial fox, astral qilin guardian",
+            style: "divine spirit beast portrait, premium anime art, epic mystical composition",
+            details: "majestic features, blazing eyes, powerful energy manifestation, intricate divine patterns, commanding presence",
+            effects: "intense ethereal glow, reality ripples, cosmic energy, divine aura, floating celestial elements"
+        },
+        legendary: {
+            creatures: "cosmic phoenix god emperor, celestial dragon sovereign, divine kirin overlord",
+            style: "godlike spirit deity portrait, masterwork anime art, transcendent mystical composition",
+            details: "supreme divine features, universe-reflecting eyes, reality-bending energy, ultimate mystical patterns, overwhelming divine presence",
+            effects: "maximum ethereal effects, dimensional tears, cosmic manifestation, godlike aura, celestial apocalypse"
+        }
     },
-    uncommon: {
-        base: "dark anime portrait, Death Note art style, sharp detailed linework, dynamic composition, character facing forward",
-        details: "cyberpunk anime warrior, piercing eyes, angular features, tactical gear, fierce expression, cyber implants",
-        effects: "neon glow effects, dramatic rim lighting, noir atmosphere, heavy shadows, cinematic depth"
+    glitch: {
+        common: {
+            creatures: "data serpent spirit, cyber wolf yokai, glitch raven",
+            style: "corrupted digital spirit portrait, technical anime art, glitchy composition",
+            details: "sharp digital features, flickering form, data streams, circuit patterns, intense gaze",
+            effects: "digital glitches, data artifacts, scan lines, matrix code drips"
+        },
+        uncommon: {
+            creatures: "corrupted dragon spirit, digital tiger hunter, matrix fox phantom",
+            style: "advanced digital beast portrait, detailed glitch anime art, dynamic corrupted composition",
+            details: "fractured features, glowing neon eyes, corrupted energy, complex circuit patterns, predatory stance",
+            effects: "heavy glitch effects, reality corruption, digital tears, matrix rain, electromagnetic aura"
+        },
+        rare: {
+            creatures: "glitch qilin destroyer, void dragon phantom, corrupted phoenix entity",
+            style: "elite digital deity portrait, premium glitch anime art, epic corrupted composition",
+            details: "reality-glitched features, void-filled eyes, massive data corruption, intricate digital destruction, overwhelming tech presence",
+            effects: "extreme glitch distortion, reality fragmentation, digital apocalypse, void rifts, matrix implosion"
+        },
+        legendary: {
+            creatures: "digital dragon god virus, matrix leviathan supreme, glitch deity overlord",
+            style: "godlike digital entity portrait, masterwork glitch anime art, transcendent corrupted composition",
+            details: "universe-corrupting features, black hole eyes, total reality breakdown, ultimate digital supremacy, apocalyptic tech god",
+            effects: "maximum glitch apocalypse, dimension corruption, digital singularity, reality deletion, matrix godmode"
+        }
     },
-    rare: {
-        base: "dark anime portrait, Tsugumi Ohba style, intricate linework, badass composition, character facing forward",
-        details: "elite cyberpunk anime fighter, glowing eyes, sharp jawline, advanced cyber mods, intimidating presence, battle-worn",
-        effects: "intense neon effects, glitch overlays, dramatic backlighting, volumetric fog, cinematic atmosphere"
-    },
-    legendary: {
-        base: "legendary dark anime portrait, Death Note meets Akira art style, masterful linework, epic composition, character facing forward",
-        details: "godlike cyberpunk anime character, supernatural eyes, chiseled features, transcendent cyber form, overwhelming presence",
-        effects: "maximum dramatic effects, reality distortion, powerful energy aura, cinematic god rays, noir perfection"
+    neon: {
+        common: {
+            creatures: "street tiger warrior, urban wolf fighter, crimson serpent hunter",
+            style: "fierce spirit warrior portrait, battle anime art, aggressive composition",
+            details: "scarred features, burning eyes, battle aura, war markings, warrior stance",
+            effects: "flame trails, heat distortion, blood mist, warrior energy"
+        },
+        uncommon: {
+            creatures: "battle dragon champion, warrior phoenix striker, combat qilin soldier",
+            style: "elite battle spirit portrait, detailed war anime art, dynamic combat composition",
+            details: "battle-hardened features, blazing warrior eyes, intense combat energy, complex war patterns, battle-ready presence",
+            effects: "intense flame aura, explosive energy, battle aftermath, warrior spirit manifestation"
+        },
+        rare: {
+            creatures: "war god tiger general, blood dragon warlord, infernal phoenix destroyer",
+            style: "legendary battle deity portrait, premium war anime art, epic combat composition",
+            details: "godlike warrior features, inferno eyes, overwhelming battle power, intricate war god patterns, apocalyptic combat presence",
+            effects: "maximum battle effects, reality-burning flames, war god aura, explosive destruction, battlefield apocalypse"
+        },
+        legendary: {
+            creatures: "dragon war deity emperor, supreme battle beast god, legendary warrior spirit overlord",
+            style: "ultimate war god portrait, masterwork battle anime art, transcendent combat composition",
+            details: "supreme warrior deity features, universe-destroying eyes, absolute battle supremacy, ultimate war god patterns, omnipotent warrior presence",
+            effects: "godlike battle apocalypse, dimension-shattering power, war god singularity, reality combustion, ultimate warrior transcendence"
+        }
     }
 };
 
@@ -147,37 +226,45 @@ function determineTier(index, total) {
     }
 }
 
-// Build Consistent Prompt
+// Build Faction-Specific Prompt for Animal Spirits
 function buildPrompt(tier, index) {
     if (!selectedFaction) {
         throw new Error('No faction selected');
     }
     
-    const faction = FACTION_PALETTES[selectedFaction];
-    const tierTemplate = TIER_PROMPTS[tier];
+    const faction = FACTION_THEMES[selectedFaction];
+    const tierPrompts = FACTION_TIER_PROMPTS[selectedFaction][tier];
     
-    // Dark anime style prompt
-    let prompt = `${tierTemplate.base}, ${faction.vibe} aesthetic, `;
-    prompt += `${tierTemplate.details}, `;
+    // Select random creature from tier
+    const creatureList = tierPrompts.creatures.split(', ');
+    const creature = creatureList[Math.floor(Math.random() * creatureList.length)];
+    
+    // Build comprehensive Chinese mythology animal spirit prompt
+    let prompt = `${creature} portrait, Chinese mythology spirit beast, ${tierPrompts.style}, `;
+    prompt += `${tierPrompts.details}, `;
     prompt += `${faction.colors} color palette, `;
     prompt += `${faction.lighting}, `;
-    prompt += `${tierTemplate.effects}, `;
+    prompt += `${tierPrompts.effects}, `;
+    prompt += `${faction.vibe}, `;
     
-    // Anime style anchors
-    prompt += `dark anime art style, manga illustration, seinen manga aesthetic, `;
-    prompt += `sharp lineart, detailed anime eyes, dramatic shading, `;
-    prompt += `professional anime portrait, high quality anime art, `;
-    prompt += `mature anime style, gritty anime illustration, `;
-    prompt += `character centered, facing forward, shoulders up, `;
-    prompt += `cinematic anime composition, badass character design`;
+    // Core anime style anchors for mythological creatures
+    prompt += `dark anime art style, yokai illustration, mythological beast anime, `;
+    prompt += `sharp detailed lineart, dramatic anime eyes, epic creature design, `;
+    prompt += `Chinese mythology aesthetic, spirit beast portrait, `;
+    prompt += `professional anime illustration, legendary creature art, `;
+    prompt += `mystical anime style, deity portrait composition, `;
+    prompt += `creature facing forward, powerful presence, shoulders/head visible, `;
+    prompt += `cinematic anime composition, badass mythological design`;
     
-    // Negative prompt - AVOID CARTOON STYLE
-    const negativePrompt = `cartoon, western cartoon, pixar, disney, chibi, cute, kawaii, soft, ` +
+    // Negative prompt - AVOID human features and cartoon style
+    const negativePrompt = `human, person, humanoid, human face, human body, ` +
+                          `cartoon, western cartoon, pixar, disney, chibi, cute, kawaii, soft, ` +
                           `rounded features, simplified, children's art, cel shaded, flat colors, ` +
                           `blurry, low quality, 3D render, photograph, realistic photo, ` +
                           `ugly, distorted, deformed, watermark, text, signature, ` +
-                          `multiple characters, duplicate, bad anatomy, bad proportions, ` +
-                          `oversaturated, overexposed, amateur, sketch, unfinished`;
+                          `multiple creatures, duplicate, bad anatomy, bad proportions, ` +
+                          `oversaturated, overexposed, amateur, sketch, unfinished, ` +
+                          `furry, anthro, anime girl, anime boy, wings only, head only`;
     
     return { prompt, negativePrompt };
 }
