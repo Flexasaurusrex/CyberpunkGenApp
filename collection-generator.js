@@ -70,79 +70,79 @@ const FACTION_TIER_PROMPTS = {
     synthwave: {
         common: {
             creatures: "celestial crane spirit, moon rabbit yokai, cloud serpent",
-            style: "elegant celestial spirit portrait, mystical anime art, flowing ethereal design",
-            details: "graceful features, gentle glow, soft spiritual energy, delicate patterns, calm expression",
-            effects: "soft neon glow, ethereal mist, floating sparkles, dreamy atmosphere"
+            style: "raw hand-drawn spirit portrait, rough sketch aesthetic, emotional manga art, aggressive brushwork, expressive linework",
+            details: "intense spiritual energy, wild flowing forms, emotional eyes, raw sketch lines, hand-drawn texture, visceral presence, expressive features",
+            effects: "aggressive neon splashes, raw energy bursts, sketchy glow, emotional particle effects, hand-drawn atmosphere, gritty luminescence"
         },
         uncommon: {
             creatures: "phoenix fledgling spirit, sky fox yokai, celestial tiger guardian",
-            style: "mystical spirit warrior portrait, detailed anime art, dynamic ethereal composition",
-            details: "sharp spiritual features, glowing eyes, energy wisps, mystical markings, fierce yet elegant",
-            effects: "vibrant neon aura, swirling energy, magical particles, ethereal flames"
+            style: "intense hand-sketched warrior portrait, raw emotional manga art, aggressive expressive linework, gritty brushstrokes, visceral composition",
+            details: "fierce emotional energy, wild aggressive features, burning intense eyes, rough sketch texturing, hand-drawn power, raw spiritual fury, expressive battle scars",
+            effects: "explosive sketchy aura, raw energy manifestation, aggressive neon bursts, emotional flame sketches, visceral glow, gritty spiritual chaos"
         },
         rare: {
             creatures: "azure phoenix deity, nine-tailed celestial fox, astral qilin guardian",
-            style: "divine spirit beast portrait, premium anime art, epic mystical composition",
-            details: "majestic features, blazing eyes, powerful energy manifestation, intricate divine patterns, commanding presence",
-            effects: "intense ethereal glow, reality ripples, cosmic energy, divine aura, floating celestial elements"
+            style: "epic raw sketch portrait, emotionally charged manga masterwork, aggressive detailed linework, gritty hand-drawn intensity, visceral epic composition",
+            details: "overwhelming emotional power, wild divine features, soul-piercing eyes, intense sketch details, raw energy coursing, aggressive spiritual presence, hand-drawn fury",
+            effects: "catastrophic sketchy effects, raw reality tears, aggressive cosmic energy, emotional storm manifestation, visceral divine power, gritty spiritual apocalypse"
         },
         legendary: {
             creatures: "cosmic phoenix god emperor, celestial dragon sovereign, divine kirin overlord",
-            style: "godlike spirit deity portrait, masterwork anime art, transcendent mystical composition",
-            details: "supreme divine features, universe-reflecting eyes, reality-bending energy, ultimate mystical patterns, overwhelming divine presence",
-            effects: "maximum ethereal effects, dimensional tears, cosmic manifestation, godlike aura, celestial apocalypse"
+            style: "ultimate raw sketch deity portrait, soul-crushing emotional manga art, aggressive masterwork linework, hand-drawn godlike intensity, visceral transcendent composition",
+            details: "absolute emotional dominance, wild reality-bending features, universe-destroying eyes, raw sketch perfection, aggressive divine energy, hand-drawn supremacy, visceral god presence",
+            effects: "apocalyptic sketchy chaos, raw dimensional collapse, aggressive cosmic manifestation, emotional singularity, visceral divine wrath, hand-drawn reality destruction"
         }
     },
     glitch: {
         common: {
             creatures: "data serpent spirit, cyber wolf yokai, glitch raven",
-            style: "corrupted digital spirit portrait, technical anime art, glitchy composition",
-            details: "sharp digital features, flickering form, data streams, circuit patterns, intense gaze",
-            effects: "digital glitches, data artifacts, scan lines, matrix code drips"
+            style: "raw glitch sketch portrait, aggressive digital corruption art, hand-drawn tech chaos, visceral broken linework, emotional data decay",
+            details: "intense corrupted features, wild fragmented form, aggressive data tears, raw sketch glitches, hand-drawn digital chaos, visceral tech scars, emotional breakdown",
+            effects: "aggressive glitch explosions, raw data corruption, sketchy matrix breaks, emotional digital tears, visceral code bleeding, gritty reality fractures"
         },
         uncommon: {
             creatures: "corrupted dragon spirit, digital tiger hunter, matrix fox phantom",
-            style: "advanced digital beast portrait, detailed glitch anime art, dynamic corrupted composition",
-            details: "fractured features, glowing neon eyes, corrupted energy, complex circuit patterns, predatory stance",
-            effects: "heavy glitch effects, reality corruption, digital tears, matrix rain, electromagnetic aura"
+            style: "intense corrupted sketch portrait, raw glitch manga art, aggressive fragmented linework, hand-drawn digital apocalypse, visceral tech chaos, emotional data war",
+            details: "fierce digital destruction, wild corrupted features, burning void eyes, aggressive glitch patterns, raw tech fury, hand-drawn corruption, visceral matrix rage, emotional chaos",
+            effects: "explosive glitch storms, raw reality corruption, aggressive digital apocalypse, emotional data cascades, visceral tech implosion, sketchy matrix chaos, gritty breakdown"
         },
         rare: {
             creatures: "glitch qilin destroyer, void dragon phantom, corrupted phoenix entity",
-            style: "elite digital deity portrait, premium glitch anime art, epic corrupted composition",
-            details: "reality-glitched features, void-filled eyes, massive data corruption, intricate digital destruction, overwhelming tech presence",
-            effects: "extreme glitch distortion, reality fragmentation, digital apocalypse, void rifts, matrix implosion"
+            style: "epic corrupted sketch deity, emotionally devastating glitch art, aggressive reality-breaking linework, raw hand-drawn digital god, visceral tech supremacy",
+            details: "overwhelming digital fury, wild void-consumed features, reality-tearing eyes, intense corruption sketches, raw apocalyptic power, aggressive tech dominance, hand-drawn devastation",
+            effects: "catastrophic glitch apocalypse, raw dimensional corruption, aggressive void manifestation, emotional reality deletion, visceral digital singularity, sketchy tech annihilation"
         },
         legendary: {
             creatures: "digital dragon god virus, matrix leviathan supreme, glitch deity overlord",
-            style: "godlike digital entity portrait, masterwork glitch anime art, transcendent corrupted composition",
-            details: "universe-corrupting features, black hole eyes, total reality breakdown, ultimate digital supremacy, apocalyptic tech god",
-            effects: "maximum glitch apocalypse, dimension corruption, digital singularity, reality deletion, matrix godmode"
+            style: "ultimate corrupted sketch god, soul-destroying glitch masterwork, aggressive reality-deleting linework, raw hand-drawn tech deity, visceral digital transcendence",
+            details: "absolute digital supremacy, wild universe-corrupting form, black hole consuming eyes, raw sketch godmode, aggressive tech omnipotence, hand-drawn annihilation, emotional devastation",
+            effects: "apocalyptic glitch singularity, raw reality annihilation, aggressive dimensional collapse, emotional tech apocalypse, visceral digital godmode, hand-drawn universe deletion"
         }
     },
     neon: {
         common: {
             creatures: "street tiger warrior, urban wolf fighter, crimson serpent hunter",
-            style: "fierce spirit warrior portrait, battle anime art, aggressive composition",
-            details: "scarred features, burning eyes, battle aura, war markings, warrior stance",
-            effects: "flame trails, heat distortion, blood mist, warrior energy"
+            style: "raw battle sketch portrait, aggressive warrior manga art, hand-drawn combat fury, visceral fight linework, emotional war sketch",
+            details: "intense battle scars, wild aggressive features, burning rage eyes, raw sketch wounds, hand-drawn warrior fury, visceral combat presence, emotional battle damage",
+            effects: "aggressive flame explosions, raw blood mist, sketchy heat waves, emotional combat aura, visceral battle energy, gritty war atmosphere"
         },
         uncommon: {
             creatures: "battle dragon champion, warrior phoenix striker, combat qilin soldier",
-            style: "elite battle spirit portrait, detailed war anime art, dynamic combat composition",
-            details: "battle-hardened features, blazing warrior eyes, intense combat energy, complex war patterns, battle-ready presence",
-            effects: "intense flame aura, explosive energy, battle aftermath, warrior spirit manifestation"
+            style: "intense war sketch portrait, raw battle manga masterwork, aggressive combat linework, hand-drawn warrior chaos, visceral fight composition, emotional carnage art",
+            details: "fierce battle fury, wild warrior features, blazing combat eyes, aggressive war sketches, raw battle power, hand-drawn destruction, visceral warrior rage, emotional slaughter",
+            effects: "explosive combat chaos, raw flame apocalypse, aggressive battle manifestation, emotional war energy, visceral destruction waves, sketchy warrior aura, gritty bloodshed"
         },
         rare: {
             creatures: "war god tiger general, blood dragon warlord, infernal phoenix destroyer",
-            style: "legendary battle deity portrait, premium war anime art, epic combat composition",
-            details: "godlike warrior features, inferno eyes, overwhelming battle power, intricate war god patterns, apocalyptic combat presence",
-            effects: "maximum battle effects, reality-burning flames, war god aura, explosive destruction, battlefield apocalypse"
+            style: "epic war god sketch portrait, emotionally devastating battle art, aggressive reality-burning linework, raw hand-drawn war deity, visceral combat supremacy",
+            details: "overwhelming battle dominance, wild war god features, inferno-consuming eyes, intense war sketches, raw apocalyptic fury, aggressive warrior transcendence, hand-drawn carnage",
+            effects: "catastrophic battle apocalypse, raw reality combustion, aggressive war god manifestation, emotional battlefield collapse, visceral combat singularity, sketchy warrior devastation"
         },
         legendary: {
             creatures: "dragon war deity emperor, supreme battle beast god, legendary warrior spirit overlord",
-            style: "ultimate war god portrait, masterwork battle anime art, transcendent combat composition",
-            details: "supreme warrior deity features, universe-destroying eyes, absolute battle supremacy, ultimate war god patterns, omnipotent warrior presence",
-            effects: "godlike battle apocalypse, dimension-shattering power, war god singularity, reality combustion, ultimate warrior transcendence"
+            style: "ultimate war god sketch, soul-annihilating battle masterwork, aggressive universe-destroying linework, raw hand-drawn combat deity, visceral warrior transcendence",
+            details: "absolute warrior supremacy, wild battle-god form, universe-burning eyes, raw sketch godmode, aggressive combat omnipotence, hand-drawn apocalypse, emotional devastation incarnate",
+            effects: "apocalyptic war singularity, raw dimension combustion, aggressive reality annihilation, emotional battle godmode, visceral warrior transcendence, hand-drawn universe destruction"
         }
     }
 };
@@ -226,7 +226,7 @@ function determineTier(index, total) {
     }
 }
 
-// Build Faction-Specific Prompt for Animal Spirits
+// Build Faction-Specific Prompt for Animal Spirits - RAW ENERGY
 function buildPrompt(tier, index) {
     if (!selectedFaction) {
         throw new Error('No faction selected');
@@ -239,7 +239,7 @@ function buildPrompt(tier, index) {
     const creatureList = tierPrompts.creatures.split(', ');
     const creature = creatureList[Math.floor(Math.random() * creatureList.length)];
     
-    // Build comprehensive Chinese mythology animal spirit prompt
+    // Build RAW GRITTY EMOTIONAL prompt
     let prompt = `${creature} portrait, Chinese mythology spirit beast, ${tierPrompts.style}, `;
     prompt += `${tierPrompts.details}, `;
     prompt += `${faction.colors} color palette, `;
@@ -247,24 +247,30 @@ function buildPrompt(tier, index) {
     prompt += `${tierPrompts.effects}, `;
     prompt += `${faction.vibe}, `;
     
-    // Core anime style anchors for mythological creatures
-    prompt += `dark anime art style, yokai illustration, mythological beast anime, `;
-    prompt += `sharp detailed lineart, dramatic anime eyes, epic creature design, `;
-    prompt += `Chinese mythology aesthetic, spirit beast portrait, `;
-    prompt += `professional anime illustration, legendary creature art, `;
-    prompt += `mystical anime style, deity portrait composition, `;
-    prompt += `creature facing forward, powerful presence, shoulders/head visible, `;
-    prompt += `cinematic anime composition, badass mythological design`;
+    // RAW SKETCHY EMOTIONAL STYLE ANCHORS
+    prompt += `raw hand-drawn manga art, aggressive sketch linework, emotional intensity, `;
+    prompt += `gritty rough textures, visceral brushstrokes, expressive wild lines, `;
+    prompt += `intense emotional energy, rough sketch aesthetic, hand-drawn chaos, `;
+    prompt += `aggressive artistic style, raw manga sketch, visceral line quality, `;
+    prompt += `emotional power, gritty hand-drawn details, sketchy intensity, `;
+    prompt += `rough artistic energy, wild expressive marks, aggressive emotional art, `;
+    prompt += `yokai illustration, mythological beast manga, raw creature energy, `;
+    prompt += `spirit beast portrait, hand-sketched intensity, emotional creature design, `;
+    prompt += `creature facing forward, powerful aggressive presence, shoulders/head visible, `;
+    prompt += `intense manga composition, raw emotional mythological art, gritty beast energy`;
     
-    // Negative prompt - AVOID human features and cartoon style
+    // Negative prompt - AVOID clean polished smooth style
     const negativePrompt = `human, person, humanoid, human face, human body, ` +
                           `cartoon, western cartoon, pixar, disney, chibi, cute, kawaii, soft, ` +
+                          `smooth, clean, polished, refined, perfect lines, digital clean, ` +
+                          `vector art, flat design, minimalist, corporate art, ` +
                           `rounded features, simplified, children's art, cel shaded, flat colors, ` +
                           `blurry, low quality, 3D render, photograph, realistic photo, ` +
                           `ugly, distorted, deformed, watermark, text, signature, ` +
                           `multiple creatures, duplicate, bad anatomy, bad proportions, ` +
-                          `oversaturated, overexposed, amateur, sketch, unfinished, ` +
-                          `furry, anthro, anime girl, anime boy, wings only, head only`;
+                          `oversaturated, overexposed, amateur, unfinished, ` +
+                          `furry, anthro, anime girl, anime boy, wings only, head only, ` +
+                          `calm, peaceful, serene, gentle, soft energy, weak, passive`;
     
     return { prompt, negativePrompt };
 }
